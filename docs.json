@@ -1,122 +1,1584 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+  "openapi": "3.0.0",
+  "info": {
+    "title": "TRM Public API",
+    "version": "1.0.0",
+    "description": ""
   },
-  "favicon": "/favicon.svg",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
+  "servers": [
+    {
+      "url": "{{trm_b2b_server_public_url}}"
+    }
+  ],
+  "paths": {
+    "/public/v2/screening/addresses": {
+      "post": {
+        "summary": "Public v2 Screening Address",
+        "parameters": [
           {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
+            "name": "organizationId",
+            "in": "query",
+            "required": false,
+            "deprecated": false,
+            "schema": {},
+            "example": "142"
           },
           {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
+            "name": "disableKafkaLogging",
+            "in": "query",
+            "required": false,
+            "deprecated": false,
+            "schema": {},
+            "example": "true"
           },
           {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "deprecated": false,
+            "schema": {},
+            "example": "{{$guid}}"
           }
+        ],
+        "responses": {
+          "201": {
+            "description": "SamSam BTC with address volume",
+            "headers": {
+              "Server": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Cowboy"
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "keep-alive"
+              },
+              "Content-Security-Policy": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+              },
+              "X-Dns-Prefetch-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "off"
+              },
+              "Expect-Ct": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "max-age=0"
+              },
+              "X-Frame-Options": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "max-age=15552000; includeSubDomains"
+              },
+              "X-Download-Options": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "noopen"
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "nosniff"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "none"
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "no-referrer"
+              },
+              "X-Xss-Protection": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": "0"
+              },
+              "Feature-Policy": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "ambient-light-sensor 'none'; autoplay 'none'; battery 'none'; camera 'none'; display-capture 'none'; document-domain 'none'; encrypted-media 'none'; execution-while-not-rendered 'none'; execution-while-out-of-viewport 'none'; fullscreen 'none'; geolocation 'none'; gyroscope 'none'; layout-animations 'none'; legacy-image-formats 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; navigation-override 'none'; oversized-images 'none'; payment 'none'; picture-in-picture 'none'; publickey-credentials-get 'none'; screen-wake-lock 'none'; sync-xhr 'none'; usb 'none'; vr 'none'; wake-lock 'none'; web-share 'none'; xr-spatial-tracking 'none';"
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "*"
+              },
+              "X-Ratelimit-Limit": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": "20"
+              },
+              "X-Ratelimit-Remaining": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": "19"
+              },
+              "Date": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Mon, 05 Jul 2021 14:20:03 GMT"
+              },
+              "X-Ratelimit-Reset": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": "1625494805"
+              },
+              "Allow": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "POST"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Accept, Accept-Encoding"
+              },
+              "Etag": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "W/\"b23-vhZx6ntL6AFrqazYybr0vdJ6W60\""
+              },
+              "Content-Encoding": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "gzip"
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "chunked"
+              },
+              "Via": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "1.1 vegur"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "type": "string"
+                      },
+                      "chain": {
+                        "type": "string"
+                      },
+                      "addressRiskIndicators": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "categoryId": {
+                              "type": "string",
+                              "format": "utc-millisec"
+                            },
+                            "category": {
+                              "type": "string"
+                            },
+                            "categoryRiskScoreLevel": {
+                              "type": "integer"
+                            },
+                            "categoryRiskScoreLevelLabel": {
+                              "type": "string"
+                            },
+                            "incomingVolumeUsd": {
+                              "type": "string"
+                            },
+                            "outgoingVolumeUsd": {
+                              "type": "string"
+                            },
+                            "totalVolumeUsd": {
+                              "type": "string"
+                            },
+                            "instances": {
+                              "type": "string",
+                              "format": "utc-millisec"
+                            },
+                            "riskType": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "entities": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "entityId": {
+                              "type": "string",
+                              "format": "color"
+                            },
+                            "entity": {
+                              "type": "string"
+                            },
+                            "categoryId": {
+                              "type": "string",
+                              "format": "utc-millisec"
+                            },
+                            "category": {
+                              "type": "string"
+                            },
+                            "riskScoreLevel": {
+                              "type": "integer"
+                            },
+                            "riskScoreLevelLabel": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "address": "149w62rY42aZBox8fGcmqNsXUzSStKeq8C",
+                    "chain": "btc",
+                    "addressRiskIndicators": [
+                      {
+                        "categoryId": "58",
+                        "category": "Ransomware",
+                        "categoryRiskScoreLevel": 1,
+                        "categoryRiskScoreLevelLabel": "Low",
+                        "incomingVolumeUsd": "2713861.234246592",
+                        "outgoingVolumeUsd": "2732211.454771866",
+                        "totalVolumeUsd": "5446072.689018458",
+                        "instances": "1",
+                        "riskType": "OWNERSHIP"
+                      },
+                      {
+                        "categoryId": "69",
+                        "category": "Sanctions",
+                        "categoryRiskScoreLevel": 10,
+                        "categoryRiskScoreLevelLabel": "High",
+                        "incomingVolumeUsd": "2713861.234246592",
+                        "outgoingVolumeUsd": "2732211.454771866",
+                        "totalVolumeUsd": "5446072.689018458",
+                        "instances": "1",
+                        "riskType": "OWNERSHIP"
+                      },
+                      {
+                        "categoryId": "10",
+                        "category": "High-Risk Exchange",
+                        "categoryRiskScoreLevel": 5,
+                        "categoryRiskScoreLevelLabel": "Medium",
+                        "incomingVolumeUsd": "16805.482549096",
+                        "outgoingVolumeUsd": "1068634.334289032",
+                        "totalVolumeUsd": "1085439.816838128",
+                        "instances": "475",
+                        "riskType": "COUNTERPARTY"
+                      },
+                      {
+                        "categoryId": "7",
+                        "category": "P2P Crypto Marketplace",
+                        "categoryRiskScoreLevel": 1,
+                        "categoryRiskScoreLevelLabel": "Low",
+                        "incomingVolumeUsd": "16520.598797998",
+                        "outgoingVolumeUsd": "503914.620532006",
+                        "totalVolumeUsd": "520435.219330004",
+                        "instances": "373",
+                        "riskType": "COUNTERPARTY"
+                      },
+                      {
+                        "categoryId": "58",
+                        "category": "Ransomware",
+                        "categoryRiskScoreLevel": 1,
+                        "categoryRiskScoreLevelLabel": "Low",
+                        "incomingVolumeUsd": "4653.220592434",
+                        "outgoingVolumeUsd": "17549.032282575",
+                        "totalVolumeUsd": "22202.252875009",
+                        "instances": "42",
+                        "riskType": "COUNTERPARTY"
+                      },
+                      {
+                        "categoryId": "34",
+                        "category": "Hacked or Stolen Funds",
+                        "categoryRiskScoreLevel": 5,
+                        "categoryRiskScoreLevelLabel": "Medium",
+                        "incomingVolumeUsd": "14437.036200778",
+                        "outgoingVolumeUsd": "0",
+                        "totalVolumeUsd": "14437.036200778",
+                        "instances": "23",
+                        "riskType": "COUNTERPARTY"
+                      },
+                      {
+                        "categoryId": "23",
+                        "category": "Gambling Service",
+                        "categoryRiskScoreLevel": 5,
+                        "categoryRiskScoreLevelLabel": "Medium",
+                        "incomingVolumeUsd": "579.512672894",
+                        "outgoingVolumeUsd": "2152.531677265",
+                        "totalVolumeUsd": "2732.044350159",
+                        "instances": "18",
+                        "riskType": "COUNTERPARTY"
+                      },
+                      {
+                        "categoryId": "69",
+                        "category": "Sanctions",
+                        "categoryRiskScoreLevel": 10,
+                        "categoryRiskScoreLevelLabel": "High",
+                        "incomingVolumeUsd": "1925.32853496",
+                        "outgoingVolumeUsd": "279.125313705",
+                        "totalVolumeUsd": "2204.453848665",
+                        "instances": "3",
+                        "riskType": "COUNTERPARTY"
+                      },
+                      {
+                        "categoryId": "54",
+                        "category": "Ponzi Scheme",
+                        "categoryRiskScoreLevel": 5,
+                        "categoryRiskScoreLevelLabel": "Medium",
+                        "incomingVolumeUsd": "0",
+                        "outgoingVolumeUsd": "1764.797132505",
+                        "totalVolumeUsd": "1764.797132505",
+                        "instances": "2",
+                        "riskType": "COUNTERPARTY"
+                      },
+                      {
+                        "categoryId": "46",
+                        "category": "Darknet Market",
+                        "categoryRiskScoreLevel": 5,
+                        "categoryRiskScoreLevelLabel": "Medium",
+                        "incomingVolumeUsd": "0",
+                        "outgoingVolumeUsd": "178.919699543",
+                        "totalVolumeUsd": "178.919699543",
+                        "instances": "1",
+                        "riskType": "COUNTERPARTY"
+                      }
+                    ],
+                    "entities": [
+                      {
+                        "entityId": "980",
+                        "entity": "SamSam",
+                        "categoryId": "69",
+                        "category": "Sanctions",
+                        "riskScoreLevel": 10,
+                        "riskScoreLevelLabel": "High"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Screening"
+        ],
+        "description": "# Public v2 Screening Address\n\n## Overview\n\nThis endpoint screens cryptocurrency addresses across all supported blockchain networks to identify potential risk indicators and compliance concerns. It provides comprehensive risk assessment data for one or multiple addresses in a single request.\n\n## Endpoint\n\n**POST** `{{trm_b2b_server_public_url}}/public/v2/screening/addresses`\n\n### Query Parameters\n\n- `disableKafkaLogging` (optional): Set to `true` to disable Kafka logging for this request. Useful for testing or when you want to prevent the request from being logged to the Kafka event stream.\n    \n\n## Required Headers\n\n- **Content-Type**: `application/json` - Indicates that the request body is in JSON format\n    \n- **X-Request-Id**: `{{$guid}}` - A unique identifier for tracking the request (typically a GUID/UUID)\n    \n\n## Request Body\n\nThe request body should be a JSON array of objects, where each object represents an address to screen:\n\n``` json\n[\n  {\n    \"address\": \"string\",           // The cryptocurrency address to screen\n    \"chain\": \"string\",              // The blockchain network (use \"all\" to screen across all chains)\n    \"externalId\": \"string\",         // Your unique identifier for this screening request\n    \"accountExternalId\": \"string\"   // Your unique identifier for the account associated with this address\n  }\n]\n\n ```\n\n### Field Descriptions\n\n- **address**: The cryptocurrency address you want to screen (e.g., Bitcoin, Ethereum, or other blockchain addresses)\n    \n- **chain**: Specify the blockchain network or use \"all\" to screen across all supported chains\n    \n- **externalId**: A unique identifier you assign to track this specific screening request\n    \n- **accountExternalId**: A unique identifier for the account or entity associated with this address\n    \n\n## Response\n\nThe response contains screening results with risk assessment data. The response includes:\n\n- **addressRiskIndicators**: An array of risk indicators identified for the screened address(es), providing detailed information about potential compliance concerns, exposure to risky entities, and other relevant risk factors.\n    \n\n## Available Examples\n\nThis request includes 2 saved examples demonstrating different use cases:\n\n1. **Screen across all chains including data** - Shows comprehensive screening with full data\n    \n2. **Screen across all chains** - Demonstrates basic screening across all blockchain networks\n    \n\nThese examples illustrate different variations of using this endpoint with various request configurations and expected responses."
+      }
+    },
+    "/public/v2/screening/entities": {
+      "get": {
+        "summary": "Public v2 Screening Entities",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "142"
+          },
+          {
+            "name": "trmUrn",
+            "in": "query",
+            "description": "To fill a trmUrn here: paste, select, right click, and choose 'EncodeURIComponent'.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "%2Fentity%2Fmanual%2F439c54d9-e9ca-43d1-be98-0cb0a68fd16e"
+          }
+        ],
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "Screening"
+        ],
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
+      }
+    },
+    "/public/v2/tm/alerts/{uuid}": {
+      "get": {
+        "summary": "Public v2 Transfer Alerts",
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "TM (Transaction Monitoring)",
+          "Alerts"
+        ],
+        "description": "# Get Transfer Alert Details\n\n## Overview\nRetrieves detailed information about a specific transfer alert by its unique identifier (UUID). This endpoint allows you to fetch comprehensive details about alerts generated by TRM's transaction monitoring system.\n\n## Path Parameters\n\n| Parameter | Type | Required | Description |\n|-----------|------|----------|-------------|\n| `uuid` | string (UUID) | Yes | The unique identifier of the transfer alert you want to retrieve. This corresponds to the `alertUuid` variable. |\n\n## Authentication\nThis endpoint requires API key authentication. Include your API key in the request headers:\n- Header: `x-api-key` or as configured in your authentication settings\n- The API key should have appropriate permissions to access transfer alert data\n\n## Response Format\nThe endpoint returns a JSON object containing:\n- Alert metadata (ID, timestamp, status)\n- Transaction details associated with the alert\n- Risk indicators and scores\n- Entity information (if applicable)\n- Alert rule information that triggered the alert\n\n## Common Use Cases\n- **Alert Investigation**: Retrieve full details of an alert for compliance review\n- **Automated Workflows**: Fetch alert data for integration with case management systems\n- **Reporting**: Pull alert information for regulatory reporting or internal audits\n- **Alert Triage**: Access alert details to determine priority and next steps\n\n## Notes\n- This is part of the TRM Public API v2\n- Ensure the UUID provided is valid and belongs to your organization\n- Alert data availability depends on your organization's data retention policies\n- Rate limits apply as per your API subscription tier"
+      },
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "example": "{{alertUuid}}"
+        }
+      ],
+      "patch": {
+        "summary": "Public v2 Transfer Alerts PATCH",
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "TM (Transaction Monitoring)",
+          "Alerts"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string"
+                  },
+                  "ownedByUserEmail": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "updatedByUserEmail": {
+                    "type": "string",
+                    "format": "email"
+                  }
+                }
+              },
+              "example": {
+                "status": "IN_REVIEW",
+                "ownedByUserEmail": "rahul@trmlabs.com",
+                "updatedByUserEmail": "rahul@trmlabs.com"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public/v2/tm/alerts": {
+      "get": {
+        "summary": "Public v2 Transfer Alerts LIST",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "100"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "6"
+          },
+          {
+            "name": "transferUuid[eq]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "{{transfer_uuid}}"
+          },
+          {
+            "name": "issuedAt[gte]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2021-01-01T00:01:13Z"
+          },
+          {
+            "name": "sort[createdAt]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "asc"
+          },
+          {
+            "name": "riskScoreLevel[in][]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "15"
+          },
+          {
+            "name": "ownedByUserEmail[in][]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "rahul@trmlabs.com"
+          },
+          {
+            "name": "updatedByUserEmail[in][]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "rahul@trmlabs.com"
+          },
+          {
+            "name": "status[in][]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "OPEN"
+          },
+          {
+            "name": "closedReason[eq]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "FLAGGED"
+          },
+          {
+            "name": "statusUpdatedAt[gte]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2021-10-12T00:12:32Z"
+          },
+          {
+            "name": "statusUpdatedByUserEmail[in][]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "rahul@trmlabs.com"
+          },
+          {
+            "name": "sort[riskScoreLevel]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "asc"
+          },
+          {
+            "name": "transferExternalId[eq]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": " "
+          }
+        ],
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "TM (Transaction Monitoring)",
+          "Alerts"
+        ]
+      }
+    },
+    "/public/v2/tm/transfers/{uuid}": {
+      "get": {
+        "summary": "Public v2 Transfers GET",
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "TM (Transaction Monitoring)",
+          "Transfers"
         ]
       },
-      {
-        "tab": "API reference",
-        "groups": [
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "example": "{{transfer_uuid}}"
+        }
+      ]
+    },
+    "/public/v2/tm/transfers/count-by-status": {
+      "get": {
+        "summary": "Public v2 Transfers Count by Status",
+        "parameters": [
           {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
+            "name": "submittedAt[gte]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2021-10-11T00:00:00Z"
+          }
+        ],
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "TM (Transaction Monitoring)",
+          "Transfers"
+        ]
+      }
+    },
+    "/public/v2/tm/transfers": {
+      "post": {
+        "summary": "Public v2 Transfer POST",
+        "parameters": [
+          {
+            "name": "X-Request-Id",
+            "in": "header",
+            "required": false,
+            "deprecated": false,
+            "schema": {},
+            "example": "{{$randomUUID}}"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "PolygonScan Transfer",
+            "headers": {
+              "Date": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Tue, 04 Oct 2022 21:56:24 GMT"
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": "792"
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "keep-alive"
+              },
+              "Content-Security-Policy": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+              },
+              "X-Dns-Prefetch-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "off"
+              },
+              "Expect-Ct": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "max-age=0"
+              },
+              "X-Frame-Options": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "max-age=15552000; includeSubDomains"
+              },
+              "X-Download-Options": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "noopen"
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "nosniff"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "none"
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "no-referrer"
+              },
+              "X-Xss-Protection": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": "0"
+              },
+              "Feature-Policy": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "ambient-light-sensor 'none'; autoplay 'none'; battery 'none'; camera 'none'; display-capture 'none'; document-domain 'none'; encrypted-media 'none'; execution-while-not-rendered 'none'; execution-while-out-of-viewport 'none'; fullscreen 'none'; geolocation 'none'; gyroscope 'none'; layout-animations 'none'; legacy-image-formats 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; navigation-override 'none'; oversized-images 'none'; payment 'none'; picture-in-picture 'none'; publickey-credentials-get 'none'; screen-wake-lock 'none'; sync-xhr 'none'; usb 'none'; vr 'none'; wake-lock 'none'; web-share 'none'; xr-spatial-tracking 'none';"
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "*"
+              },
+              "X-Ratelimit-Limit": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": "12"
+              },
+              "X-Ratelimit-Remaining": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": "11"
+              },
+              "X-Ratelimit-Reset": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": "1664920586"
+              },
+              "Allow": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "GET,POST"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Accept, Accept-Encoding"
+              },
+              "Etag": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "W/\"318-Rj+lv/6EsZ0Xvi2EcGPrk/FXdXI\""
+              },
+              "Via": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "1.1 vegur, 1.1 vegur"
+              },
+              "CF-Cache-Status": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "DYNAMIC"
+              },
+              "Report-To": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=9KijxxHJAt0752evte8wo8mf9FFamqvIiuNoA%2F0%2FWgSDB%2FgNoLPruAXK2uYoS%2FVsnz%2BdO4QZpgGjsUSRXOOlvSHSIfFop8xDUv4NvBdhM8GhCF0hameB%2Bi%2BkRvvG781hSYNebJsRj%2FALnQ%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+              },
+              "NEL": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+              },
+              "Server": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "cloudflare"
+              },
+              "CF-RAY": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "75512ad21c347c1e-LAX"
+              },
+              "alt-svc": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "accountExternalId": {
+                      "type": "string"
+                    },
+                    "alerts": {
+                      "nullable": true
+                    },
+                    "asset": {
+                      "type": "string"
+                    },
+                    "assetAmount": {
+                      "type": "string"
+                    },
+                    "chain": {
+                      "type": "string"
+                    },
+                    "counterparties": {
+                      "nullable": true
+                    },
+                    "destinationAddress": {
+                      "type": "string",
+                      "format": "utc-millisec"
+                    },
+                    "externalId": {
+                      "type": "string"
+                    },
+                    "fiatCurrency": {
+                      "type": "string"
+                    },
+                    "fiatValue": {
+                      "type": "string"
+                    },
+                    "onchainReference": {
+                      "type": "string",
+                      "format": "utc-millisec"
+                    },
+                    "riskScoreLevel": {
+                      "nullable": true
+                    },
+                    "riskScoreLevelLabel": {
+                      "nullable": true
+                    },
+                    "screenStatus": {
+                      "type": "string"
+                    },
+                    "screenStatusFailedReason": {
+                      "nullable": true
+                    },
+                    "submittedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "transferType": {
+                      "type": "string"
+                    },
+                    "trmAppUrl": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "uuid": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "accountExternalId": "dev-68cc25c0-94c5-44ca-99f4-83347ec199fe",
+                  "alerts": null,
+                  "asset": "matic",
+                  "assetAmount": "25.16",
+                  "chain": "polygon",
+                  "counterparties": null,
+                  "destinationAddress": "0x68a0f33cceb2f7d3635e04dcc5fca2b176108a07",
+                  "externalId": "dev-d2fa8fdb-f71c-4d76-8419-63642264472f",
+                  "fiatCurrency": "USD",
+                  "fiatValue": "1008.141618500000050",
+                  "onchainReference": "0x7153bbb89c39af04a0431a092102b957b3d205e68cac1d61056f9166a3497306",
+                  "riskScoreLevel": null,
+                  "riskScoreLevelLabel": null,
+                  "screenStatus": "PROCESSING",
+                  "screenStatusFailedReason": null,
+                  "submittedAt": "2022-10-04T21:56:24.092Z",
+                  "timestamp": "2021-03-12T07:32:54Z",
+                  "transferType": "CRYPTO_WITHDRAWAL",
+                  "trmAppUrl": "https://app.trmlabs-staging.com/monitoring/transfers/8bec3b97-0e7d-5464-b051-01a198591a7b",
+                  "uuid": "8bec3b97-0e7d-5464-b051-01a198591a7b"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "TM (Transaction Monitoring)",
+          "Transfers"
+        ]
+      }
+    },
+    "/public/v2/tm/rules/{uuid}": {
+      "get": {
+        "summary": "Public v2 TM Rules",
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "TM (Transaction Monitoring)",
+          "Rules"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "example": "{{transferAlertRuleUuid}}"
+        }
+      ]
+    },
+    "/public/v2/tm/rules": {
+      "get": {
+        "summary": "Public v2 Rules LIST",
+        "parameters": [
+          {
+            "name": "isEnabled[eq]",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "true"
+          }
+        ],
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "TM (Transaction Monitoring)",
+          "Rules"
+        ]
+      }
+    },
+    "/public/v2/tm/supported-assets": {
+      "get": {
+        "summary": "GET Public v2 TM Supported Assets",
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "TM (Transaction Monitoring)"
+        ],
+        "description": "This endpoint returns supported assets for the transactions"
+      }
+    },
+    "/public/v1/offline-screening/extracts/3a0c3f33-31d0-4287-8ae2-dae3af39233c": {
+      "get": {
+        "summary": "Public V1 Offline Screening Get",
+        "parameters": [
+          {
+            "name": "organizationUuid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "{{organization_uuid}}"
           },
           {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
+            "name": "fileName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "test"
+          },
+          {
+            "name": "fileUuid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "10"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "01000"
+          }
+        ],
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "Offline Screening"
+        ],
+        "security": [
+          {
+            "BasicAuth": []
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+    },
+    "/public/v1/offline-screening/extracts": {
+      "get": {
+        "summary": "Public V1 Offline Screening - List Extracts",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "deprecated": false,
+            "schema": {},
+            "example": "10"
+          },
+          {
+            "name": "fileName",
+            "in": "query",
+            "required": false,
+            "deprecated": false,
+            "schema": {},
+            "example": "file3"
+          }
+        ],
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "Offline Screening"
+        ],
+        "security": [
+          {
+            "BasicAuth": []
+          }
+        ]
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+    },
+    "/public/v1/webhooks/destinations": {
+      "get": {
+        "summary": "Webhook Destiantions List",
+        "parameters": [
+          {
+            "name": "organizationUuid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "{{organization_uuid}}"
+          },
+          {
+            "name": "isActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "true"
+          },
+          {
+            "name": "displayName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "test"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "10"
+          }
+        ],
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "Webhook Destinations"
+        ],
+        "description": "Generated from cURL:   curl -k -sS \\\n    -H \"Accept: application/json\" \\\n    \"http://localhost:3000/public/v1/webhooks/destinations?organizationUuid=$ORG_UUID&isActive=true&displayName=test&limit=10\""
+      },
+      "post": {
+        "summary": "Webhook Destination Create",
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "Webhook Destinations"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "organizationUuid": {
+                    "type": "string"
+                  },
+                  "displayName": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "isActive": {
+                    "type": "boolean"
+                  },
+                  "events": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "authConfig": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "string"
+                      },
+                      "password": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "organizationUuid": "{{organization_uuid}}",
+                "displayName": "My Webhook",
+                "url": "https://example.com/webhook",
+                "isActive": true,
+                "events": [
+                  "*"
+                ],
+                "authConfig": {
+                  "type": "basic",
+                  "username": "matheus.moscardini",
+                  "password": "mmoscardini"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public/v1/webhooks/destinations/{webhook_destination_uuid}": {
+      "get": {
+        "summary": "Webhook Destinations Get",
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "Webhook Destinations"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "webhook_destination_uuid",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "example": "{{webhook_destination_uuid}}"
+        }
+      ],
+      "patch": {
+        "summary": "Webhook Destination Update",
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "Webhook Destinations"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "displayName": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "isActive": {
+                    "type": "boolean"
+                  },
+                  "events": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "authConfig": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "headers": {
+                        "type": "object",
+                        "properties": {
+                          "x-api": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "displayName": "My Webhook 2",
+                "url": "https://example.com/webhook2",
+                "isActive": false,
+                "events": [
+                  "*"
+                ],
+                "authConfig": {
+                  "type": "custom_headers",
+                  "headers": {
+                    "x-api": "x-api-value"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Webhook Destination Delete",
+        "responses": {"201":{"description":""}},
+        "tags": [
+          "Webhook Destinations"
+        ]
+      }
+    },
+    "/jobs/detect-beacon-alerts/evaluate-transfers-batch": {
+      "post": {
+        "summary": "Detect Flash Evaluate Transfers Batch",
+        "responses": {
+          "201": {
+            "description": "PolygonScan Transfer",
+            "headers": {
+              "Date": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Tue, 04 Oct 2022 21:56:24 GMT"
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": "792"
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "keep-alive"
+              },
+              "Content-Security-Policy": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+              },
+              "X-Dns-Prefetch-Control": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "off"
+              },
+              "Expect-Ct": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "max-age=0"
+              },
+              "X-Frame-Options": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "SAMEORIGIN"
+              },
+              "Strict-Transport-Security": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "max-age=15552000; includeSubDomains"
+              },
+              "X-Download-Options": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "noopen"
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "nosniff"
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "none"
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "no-referrer"
+              },
+              "X-Xss-Protection": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": "0"
+              },
+              "Feature-Policy": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "ambient-light-sensor 'none'; autoplay 'none'; battery 'none'; camera 'none'; display-capture 'none'; document-domain 'none'; encrypted-media 'none'; execution-while-not-rendered 'none'; execution-while-out-of-viewport 'none'; fullscreen 'none'; geolocation 'none'; gyroscope 'none'; layout-animations 'none'; legacy-image-formats 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; navigation-override 'none'; oversized-images 'none'; payment 'none'; picture-in-picture 'none'; publickey-credentials-get 'none'; screen-wake-lock 'none'; sync-xhr 'none'; usb 'none'; vr 'none'; wake-lock 'none'; web-share 'none'; xr-spatial-tracking 'none';"
+              },
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "*"
+              },
+              "X-Ratelimit-Limit": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": "12"
+              },
+              "X-Ratelimit-Remaining": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": "11"
+              },
+              "X-Ratelimit-Reset": {
+                "schema": {
+                  "type": "integer"
+                },
+                "example": "1664920586"
+              },
+              "Allow": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "GET,POST"
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "Accept, Accept-Encoding"
+              },
+              "Etag": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "W/\"318-Rj+lv/6EsZ0Xvi2EcGPrk/FXdXI\""
+              },
+              "Via": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "1.1 vegur, 1.1 vegur"
+              },
+              "CF-Cache-Status": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "DYNAMIC"
+              },
+              "Report-To": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=9KijxxHJAt0752evte8wo8mf9FFamqvIiuNoA%2F0%2FWgSDB%2FgNoLPruAXK2uYoS%2FVsnz%2BdO4QZpgGjsUSRXOOlvSHSIfFop8xDUv4NvBdhM8GhCF0hameB%2Bi%2BkRvvG781hSYNebJsRj%2FALnQ%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+              },
+              "NEL": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+              },
+              "Server": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "cloudflare"
+              },
+              "CF-RAY": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "75512ad21c347c1e-LAX"
+              },
+              "alt-svc": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "accountExternalId": {
+                      "type": "string"
+                    },
+                    "alerts": {
+                      "nullable": true
+                    },
+                    "asset": {
+                      "type": "string"
+                    },
+                    "assetAmount": {
+                      "type": "string"
+                    },
+                    "chain": {
+                      "type": "string"
+                    },
+                    "counterparties": {
+                      "nullable": true
+                    },
+                    "destinationAddress": {
+                      "type": "string",
+                      "format": "utc-millisec"
+                    },
+                    "externalId": {
+                      "type": "string"
+                    },
+                    "fiatCurrency": {
+                      "type": "string"
+                    },
+                    "fiatValue": {
+                      "type": "string"
+                    },
+                    "onchainReference": {
+                      "type": "string",
+                      "format": "utc-millisec"
+                    },
+                    "riskScoreLevel": {
+                      "nullable": true
+                    },
+                    "riskScoreLevelLabel": {
+                      "nullable": true
+                    },
+                    "screenStatus": {
+                      "type": "string"
+                    },
+                    "screenStatusFailedReason": {
+                      "nullable": true
+                    },
+                    "submittedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "transferType": {
+                      "type": "string"
+                    },
+                    "trmAppUrl": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "uuid": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "accountExternalId": "dev-68cc25c0-94c5-44ca-99f4-83347ec199fe",
+                  "alerts": null,
+                  "asset": "matic",
+                  "assetAmount": "25.16",
+                  "chain": "polygon",
+                  "counterparties": null,
+                  "destinationAddress": "0x68a0f33cceb2f7d3635e04dcc5fca2b176108a07",
+                  "externalId": "dev-d2fa8fdb-f71c-4d76-8419-63642264472f",
+                  "fiatCurrency": "USD",
+                  "fiatValue": "1008.141618500000050",
+                  "onchainReference": "0x7153bbb89c39af04a0431a092102b957b3d205e68cac1d61056f9166a3497306",
+                  "riskScoreLevel": null,
+                  "riskScoreLevelLabel": null,
+                  "screenStatus": "PROCESSING",
+                  "screenStatusFailedReason": null,
+                  "submittedAt": "2022-10-04T21:56:24.092Z",
+                  "timestamp": "2021-03-12T07:32:54Z",
+                  "transferType": "CRYPTO_WITHDRAWAL",
+                  "trmAppUrl": "https://app.trmlabs-staging.com/monitoring/transfers/8bec3b97-0e7d-5464-b051-01a198591a7b",
+                  "uuid": "8bec3b97-0e7d-5464-b051-01a198591a7b"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+  "components": {
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "BasicAuth": []
+    }
+  ]
 }
